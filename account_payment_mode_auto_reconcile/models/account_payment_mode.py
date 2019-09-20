@@ -17,3 +17,8 @@ class AccountPaymentMode(models.Model):
         default=True,
         help="Allows automatic partial reconciliation of outstanding credits",
     )
+    auto_reconcile_same_journal = fields.Boolean(
+        default=False,
+        string="Only same journal",
+        help="Only reconcile payment belonging to the same journal than the invoice",
+    )
