@@ -213,7 +213,7 @@ class TestPartnerAutoReconcile(SavepointCase):
         auto_rec_invoice.action_invoice_open()
         self.assertEqual(auto_rec_invoice.residual, 500)
 
-    def test_invoice_auto_reconcile_same_journal_not(self):
+    def test_invoice_auto_reconcile_different_journal(self):
         """Check not reconciling credits on different journal."""
         self.payment_mode.auto_reconcile_same_journal = True
         auto_rec_invoice = self.invoice.copy({
