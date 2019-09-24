@@ -88,7 +88,7 @@ class AccountInvoice(models.Model):
     def _filter_payment_same_journal(self, credits):
         """Keep only credits on the same journal than the invoice."""
         self.ensure_one()
-        line_ids = [credit['id'] for credit in credits]
+        line_ids = [credit['id'] for credit in credits_dict]
         lines = self.env['account.move.line'].browse(line_ids).filtered(
             lambda line: line.journal_id == self.journal_id
         )
