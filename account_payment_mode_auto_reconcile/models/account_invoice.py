@@ -85,7 +85,7 @@ class AccountInvoice(models.Model):
                 invoice.assign_outstanding_credit(credit.get('id'))
 
     @api.multi
-    def _filter_payment_same_journal(self, credits):
+    def _filter_payment_same_journal(self, credits_dict):
         """Keep only credits on the same journal than the invoice."""
         self.ensure_one()
         line_ids = [credit['id'] for credit in credits_dict]
