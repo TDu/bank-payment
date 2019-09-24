@@ -92,7 +92,7 @@ class AccountInvoice(models.Model):
         lines = self.env['account.move.line'].browse(line_ids).filtered(
             lambda line: line.journal_id == self.journal_id
         )
-        return [credit for credit in credits if credit['id'] in lines.ids]
+        return [credit for credit in credits_dict if credit['id'] in lines.ids]
 
     @api.multi
     def auto_unreconcile_credits(self):
